@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CFILE=$1
+
+if [[ -z "$CFILE" ]]; then
+    echo "Usage: ./100-intel CFILE"
+    exit 1
+fi
+
+gcc -S -masm=intel -o $(basename $CFILE .c).s $CFILE
