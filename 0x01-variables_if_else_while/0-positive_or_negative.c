@@ -3,7 +3,7 @@
 #include <time.h>
 
 /**
- * main - Where the program starts
+ * main - assigns a random number to the variable n each time it is executed
  *
  * Return: 0
  */
@@ -13,7 +13,7 @@ int main(void)
 
     srand(time(0));
     n = rand() - RAND_MAX / 2;
-    /* my code */
+
     if (n > 0)
     {
         printf("%d is positive\n", n);
@@ -26,6 +26,6 @@ int main(void)
     {
         printf("%d is zero\n", n);
     }
-    /* end of my code */
+
     return (0);
 }
