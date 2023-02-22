@@ -1,27 +1,25 @@
-#include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
- * print_sign - prints the sign of a number
- * @n: integer to check sign of
+ * main - entry point for the program
  *
- * Return: 1 if positive, 0 if 0, -1 if negative
+ * Return: Always 0 (Success)
  */
-int print_sign(int n)
+int main(void)
 {
-        if (n > 0)
-        {
-                _putchar('+');
-                return (1);
-        }
-        else if (n == 0)
-        {
-                _putchar('0');
-                return (0);
-        }
-        else
-        {
-                _putchar('-');
-                return (-1);
-        }
+	int n;
+
+	srand(0);
+	n = rand() - RAND_MAX / 2;
+
+	if (n > 0)
+		printf("%d is positive\n", n);
+	else if (n == 0)
+		printf("%d is zero\n", n);
+	else
+		printf("%d is negative\n", n);
+
+	return (0);
 }
 
