@@ -1,12 +1,7 @@
-#include "main.h"
-
 /**
- * main - Entry point
+ * main - check the code
  *
- * Description: This program calls the function print_last_digit
- *              to print the last digit of given numbers
- *
- * Return: Always 0 (Success)
+ * Return: Always 0.
  */
 int main(void)
 {
