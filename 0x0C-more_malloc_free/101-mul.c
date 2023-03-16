@@ -1,63 +1,35 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void print_error(void) {
+int main(int argc, char *argv[]) {
+  if (argc != 3) {
     printf("Error\n");
-}
+    return 98;
+  }
 
-void print_mul(int n1, int n2) {
-    int result = n1 * n2;
-    if (result < 0) {
-        putchar('-');
-        result = -result;
-    }
-    if (result >= 100) {
-        putchar(result / 100 + '0');
-        result %= 100;
-        putchar(result / 10 + '0');
-        result %= 10;
-    } else if (result >= 10) {
-        putchar(result / 10 + '0');
-        result %= 10;
-    }
-    putchar(result + '0');
-    putchar('\n');
-}
+  char *num1_str = argv[1];
+  char *num2_str = argv[2];
 
-void print_number(char *str) {
-    int i;
-    if (str[0] == '\0') {
-        print_error();
-        return;
+  for (int i = 0; num1_str[i] != '\0'; i++) {
+    if (num1_str[i] < '0' || num1_str[i] > '9') {
+      printf("Error\n");
+      return 98;
     }
-    for (i = 0; str[i] != '\0'; i++) {
-        if (str[i] < '0' || str[i] > '9') {
-            print_error();
-            return;
-        }
-    }
-    for (i = 0; str[i] == '0' && str[i + 1] != '\0'; i++);
-    for (; str[i] != '\0'; i++) {
-        putchar(str[i]);
-    }
-    putchar('\n');
-}
+  }
 
-int main(void) {
-    char *str1, *str2;
-    int n1, n2;
-    if (scanf("%ms %ms", &str1, &str2) != 2) {
-        print_error();
-        return 1;
+  for (int i = 0; num2_str[i] != '\0'; i++) {
+    if (num2_str[i] < '0' || num2_str[i] > '9') {
+      printf("Error\n");
+      return 98;
     }
-    n1 = atoi(str1);
-    n2 = atoi(str2);
-    if (n1 == 0 || n2 == 0 || (n1 < 0 && n2 > 0) || (n1 > 0 && n2 < 0)) {
-        print_error();
-        return 2;
-    }
-    print_mul(n1, n2);
-    print_number(str1);
-    print_number(str2);
-    return 0;
+  }
+
+  int num1 = atoi(num1_str);
+  int num2 = atoi(num2_str);
+  int result = num1 * num2;
+
+  printf("%d\n", result);
+
+  return 0;
 }
 
