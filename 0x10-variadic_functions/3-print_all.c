@@ -47,12 +47,7 @@ continue;
 sep = ", ";
 i++;
 }
-}
-
-
-printf("\n");
+} printf("\n");
 va_end(list);
-
-
 }
 
