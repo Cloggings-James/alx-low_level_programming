@@ -4,6 +4,7 @@ section .data
 
 section .text
     global main
+    extern printf ; declare the printf function as an external symbol
 
     ; set up stack frame
     main:
@@ -12,8 +13,7 @@ section .text
 
         ; call printf with the message as argument
         mov edi, message
-        mov esi, 0
-        mov eax, 0
+        xor eax, eax
         call printf
 
         ; clean up stack and exit
