@@ -1,36 +1,28 @@
-#include <stddef.h>
-
 /**
- * struct list_s - singly linked list
- * @str: string - (malloc'ed string)
- * @next: pointer to the next node
+ * print_list - prints all the elements of a linked list
+ * @h: pointer to the list_t list to print
  *
- * Description: singly linked list node structure
- * for Holberton project
+ * Return: the number of nodes printed
  */
-typedef struct list_s
+size_t print_list(const list_t *h)
 {
-char *str;
-struct list_s *next;
-} list_t;
+size_t s = 0;
 
-/**
- * list_len - returns the number of elements in a linked list_t list.
- * @h: head of the list.
- *
- * Return: The number of elements in the list.
- */
-size_t list_len(const list_t *h)
-{
-size_t count = 0;
+if (h == NULL)
+return (0);
 
-while (h != NULL)
+while (h)
 {
-count++;
+if (!h->str)
+printf("[0] (nil)\n");
+else
+printf("[%lu] %s\n", h->len, h->str);
 h = h->next;
+s++;
 }
 
-return (count);
+return (s);
+}
 }
 }
 
