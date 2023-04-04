@@ -6,14 +6,14 @@
  */
 void free_listint(listint_t *head)
 {
- listint_t *temp;
+listint_t *temp;
 
- while (head)
- {
- temp = head->next;
- free(head);
- head = temp;
- }
+while (head)
+{
+temp = head->next;
+free(head);
+head = temp;
+}
 }
 #include <stdlib.h>
 #include "lists.h"
@@ -27,13 +27,13 @@ void free_listint(listint_t *head)
 size_t listint_len(const listint_t *h)
 size_t count = 0;
 
-    while (h != NULL)
-    {
-        count++;
-        h = h->next;
-    }
+while (h != NULL)
+{
+count++;
+h = h->next;
+}
 
-    return (count);
+return (count);
 }
 dgg
 
