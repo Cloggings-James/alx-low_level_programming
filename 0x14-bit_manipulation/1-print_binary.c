@@ -1,28 +1,27 @@
 #include "main.h"
 
 /**
- * print_binary - prints the binary representation of a number
- * @n: the number to convert to binary and print
- *
- * Return: void
+ * print_binary - prints the binary equivalent of a decimal number
+ * @n: number to print in binary
  */
 void print_binary(unsigned long int n)
 {
-        unsigned long int mask = 1;
-        int i;
+	int i, count = 0;
+	unsigned long int current;
 
-        /* Find the most significant bit */
-        for (i = 0; i < (unsigned long int)(sizeof(unsigned long int) * 8) - 1; i++)
-                mask = (mask << 1);
+	for (i = 63; i >= 0; i--)
+	{
+		current = n >> i;
 
-        /* Print each bit starting with the most significant */
-        for (; i >= 0; i--)
-        {
-                if ((n & mask) == 0)
-                        _putchar('0');
-                else
-                        _putchar('1');
-                mask = (mask >> 1);
-        }
+		if (current & 1)
+		{
+			_putchar('1');
+			count++;
+		}
+		else if (count)
+			_putchar('0');
+	}
+	if (!count)
+		_putchar('0');
 }
 
