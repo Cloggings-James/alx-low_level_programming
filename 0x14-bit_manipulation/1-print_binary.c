@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * print_binary - prints the binary representation of a number
@@ -13,16 +12,16 @@ void print_binary(unsigned long int n)
         int i;
 
         /* Find the most significant bit */
-        for (i = 0; i < (sizeof(unsigned long int) * 8) - 1; i++)
+        for (i = 0; i < (unsigned long int)(sizeof(unsigned long int) * 8) - 1; i++)
                 mask = (mask << 1);
 
         /* Print each bit starting with the most significant */
         for (; i >= 0; i--)
         {
                 if ((n & mask) == 0)
-                        putchar('0');
+                        _putchar('0');
                 else
-                        putchar('1');
+                        _putchar('1');
                 mask = (mask >> 1);
         }
 }
