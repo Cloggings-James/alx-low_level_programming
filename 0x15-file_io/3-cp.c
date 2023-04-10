@@ -10,24 +10,24 @@ char *create_buffer(char *file);
 void close_file(int fd);
 
 /**
- * create_buffer - Allocates 1024 bytes.
+ * create_buffer - Allocates 1024 bytes
  * @file: The name of the file buffer is storing chars for.
  *
  * Return: A pointer to the newly-allocated buffer.
  */
 char *create_buffer(char *file)
 {
-char *buffer;
+	char *buffer;
 
-buffer = calloc(1024, sizeof(char));
+	buffer = calloc(1024, sizeof(char));
 
-if (buffer == NULL)
-{
-perror(file);
-exit(EXIT_FAILURE);
-}
+	if (buffer == NULL)
+	{
+		perror(file);
+		exit(EXIT_FAILURE);
+	}
 
-return (buffer);
+	return (buffer);
 }
 
 /**
@@ -36,11 +36,11 @@ return (buffer);
  */
 void close_file(int fd)
 {
-if (close(fd) == -1)
-{
-perror("close");
-exit(EXIT_FAILURE);
-}
+	if (close(fd) == -1)
+	{
+		perror("close");
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
@@ -57,58 +57,69 @@ exit(EXIT_FAILURE);
  */
 int main(int argc, char *argv[])
 {
-int from, to;
-ssize_t r, w;
-char *buffer;
+	int from, to;
+	ssize_t r, w;
+	char *buffer;
 
-if (argc != 3)
-{
-fprintf(stderr, "Usage: cp file_from file_to\n");
-exit(97);
+	if (argc != 3)
+	{
+		fprintf(stderr, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+
+	buffer = create_buffer(argv[2]);
+	from = open(argv[1], O_RDONLY);
+
+	if (from == -1)
+	{
+		perror(argv[1]);
+		free(buffer);
+		exit(98);
+	}
+
+	to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+
+	if (to == -1)
+	{
+		perror(argv[2]);
+		free(buffer);
+		exit(99);
+	}
+
+	for (;;)
+	{
+		r = read(from, buffer, 1024);
+
+		if (r == -1)
+		{
+			perror(argv[1]);
+			free(buffer);
+			exit(98);
+		}
+
+		if (r == 0) /* end of file */
+			break;
+
+		w = write(to, buffer, r);
+
+		if (w == -1)
+		{
+			perror(argv[2]);
+			free(buffer);
+			exit(99);
+		}
+	}
+
+	if (fsync(to) == -1)
+	{
+		perror("fsync");
+		free(buffer);
+		exit(EXIT_FAILURE);
+	}
+
+	close_file(from);
+	close_file(to);
+	free(buffer);
+	return 0;
 }
-
-buffer = create_buffer(argv[2]);
-from = open(argv[1], O_RDONLY);
-
-if (from == -1)
-{
-perror(argv[1]);
-free(buffer);
-exit(98);
-}
-
-to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-
-if (to == -1)
-{
-perror(argv[2]);
-free(buffer);
-exit(99);
-}
-
-for (;;)
-{
-r = read(from, buffer, 1024);
-
-if (r == -1)
-{
-perror(argv[1]);
-free(buffer);
-exit(98);
-}
-
-if (r == 0) /* end of file */
-break;
-
-w = write(to, buffer, r);
-
-if (w == -1)
-{
-perror(argv[2]);
-free(buffer);
-exit(99);
-}
-}
-
-if (fsync(to
 
