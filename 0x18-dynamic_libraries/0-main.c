@@ -1,14 +1,14 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * main - check the code
+ * main - Entry point
  *
- * Return: Always EXIT_SUCCESS.
+ * Return: Always 0
  */
 int main(void)
 {
-    printf("%ld\n", _strlen("My Dyn Lib"));
-    return EXIT_SUCCESS;
+    char *str = "Hello, Dynamic Library!";
+    _puts(str);
+    return 0;
 }
 

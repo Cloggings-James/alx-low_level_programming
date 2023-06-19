@@ -1,41 +1,45 @@
+#include <stdio.h>
 #include "main.h"
 
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-    int i;
-    char *str;
+int main() {
+    int a = 10;
+    int b = 5;
 
-    str = "Holberton";
-    i = _strlen(str);
-    _putchar(i + '0');
-    return (0);
+    int result_add = add(a, b);
+    printf("Addition: %d + %d = %d\n", a, b, result_add);
+
+    int result_subtract = subtract(a, b);
+    printf("Subtraction: %d - %d = %d\n", a, b, result_subtract);
+
+    int result_multiply = multiply(a, b);
+    printf("Multiplication: %d * %d = %d\n", a, b, result_multiply);
+
+    int result_divide = divide(a, b);
+    printf("Division: %d / %d = %d\n", a, b, result_divide);
+
+    int result_modulus = modulus(a, b);
+    printf("Modulus: %d %% %d = %d\n", a, b, result_modulus);
+
+    return 0;
 }
 
-/**
- * _putchar - Writes a character to the standard output
- * @c: The character to be written
- *
- * Return: On success 1
- * On error, -1 is returned and errno is set appropriately
- */
-int _putchar(char c)
-{
-    /* Your implementation of _putchar function */
+int add(int a, int b) {
+    return a + b;
 }
 
-/**
- * _strlen - Computes the length of a string
- * @s: The string to be measured
- *
- * Return: The length of the string
- */
-int _strlen(char *s)
-{
-    /* Your implementation of _strlen function */
+int subtract(int a, int b) {
+    return a - b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+int divide(int a, int b) {
+    return a / b;
+}
+
+int modulus(int a, int b) {
+    return a % b;
 }
 
