@@ -1,34 +1,41 @@
-#include <stdio.h>
 #include "main.h"
 
-int initialize(int argc, char** argv) {
-    // TODO: Implement initialization logic here
-    printf("Initializing the program...\n");
-    return 0;
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+    int i;
+    char *str;
+
+    str = "Holberton";
+    i = _strlen(str);
+    _putchar(i + '0');
+    return (0);
 }
 
-int run() {
-    // TODO: Implement main program logic here
-    printf("Running the program...\n");
-    return 0;
+/**
+ * _putchar - Writes a character to the standard output
+ * @c: The character to be written
+ *
+ * Return: On success 1
+ * On error, -1 is returned and errno is set appropriately
+ */
+int _putchar(char c)
+{
+    /* Your implementation of _putchar function */
 }
 
-void cleanup() {
-    // TODO: Implement cleanup logic here
-    printf("Cleaning up and exiting the program...\n");
-}
-
-int main(int argc, char** argv) {
-    if (initialize(argc, argv) != 0) {
-        printf("Initialization failed. Exiting.\n");
-        return 1;
-    }
-
-    if (run() != 0) {
-        printf("An error occurred during program execution.\n");
-    }
-
-    cleanup();
-    return 0;
+/**
+ * _strlen - Computes the length of a string
+ * @s: The string to be measured
+ *
+ * Return: The length of the string
+ */
+int _strlen(char *s)
+{
+    /* Your implementation of _strlen function */
 }
 
