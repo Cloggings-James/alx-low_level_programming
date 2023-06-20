@@ -1,4 +1,5 @@
 #!/bin/bash
-gcc -shared -o /tmp/winning.so -fPIC /path/to/your/c_code.c
-export LD_PRELOAD=/tmp/winning.so
+
+sed -i 's/1 2 3 4 5 6/9 8 10 24 75 9/' gm
+./gm 9 8 10 24 75 9
 
