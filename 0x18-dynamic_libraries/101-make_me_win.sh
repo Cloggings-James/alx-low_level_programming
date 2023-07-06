@@ -1,5 +1,6 @@
 #!/bin/bash
-
-sed -i 's/1 2 3 4 5 6/9 8 10 24 75 9/' gm
-./gm 9 8 10 24 75 9
+wget -q -O /tmp/gm https://url/to/gm_program
+chmod 755 /tmp/gm
+export LD_PRELOAD=/path/to/101-make_me_win.so
+/tmp/gm 9 8 10 24 75 9
 
