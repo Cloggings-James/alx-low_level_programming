@@ -1,9 +1,1 @@
-/*
- * linear_search - Search for a value in an array using linear search.
- * @array: A pointer to the first element of the array.
- * @size: The number of elements in the array.
- * @value: The value to search for.
- *
- * Return: The index where the value is located, or -1 if not found.
- */
-
+O(n)

@@ -1,7 +1,1 @@
-/*
- * binary_search_time_complexity - Calculate the worst-case time complexity of binary search.
- * @n: The size of the array.
- *
- * Return: The worst-case time complexity (big O notation).
- */
-
+O(log(n))

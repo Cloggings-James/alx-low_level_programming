@@ -1,14 +1,1 @@
-/*
- * 101-O - Time Complexity of Jump Search
- *
- * The time complexity of Jump Search in the average case, using a step size of sqrt(n),
- * is approximately O(√n), where 'n' is the size of the array.
- *
- * Jump Search is an algorithm that divides the array into blocks of size sqrt(n)
- * and performs a linear search within the block where the value might be located.
- * On average, it performs a constant number of operations proportional to the square root of the number of elements in the array.
- *
- * This makes the average time complexity of Jump Search O(√n).
- */
-
-
+O(sqrt(n))
