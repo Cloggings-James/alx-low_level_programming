@@ -1,0 +1,11 @@
+/*
+ * allocate_map - Allocate memory for a 2D map with n rows and m columns.
+ * @n: The number of rows.
+ * @m: The number of columns.
+ *
+ * Return: A pointer to the allocated 2D map.
+ *         NULL if memory allocation fails.
+ *
+ * Space Complexity: O(n * m)
+ */
+

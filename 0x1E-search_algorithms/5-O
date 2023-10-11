@@ -1,0 +1,7 @@
+/*
+ * binary_search_space_complexity - Calculate the worst-case space complexity of binary search.
+ * @n: The size of the array.
+ *
+ * Return: The worst-case space complexity (big O notation).
+ */
+
